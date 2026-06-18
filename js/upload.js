@@ -25,16 +25,18 @@ alert(error.message);
 return;
 }
 
+const {
+data:{user}
+}
+=
+await supabase.auth.getUser();
+
 await supabase
 .from('documents')
 .insert({
-
-title:
-title,
-
-storage_path:
-filename
-
+title:title,
+storage_path:filename,
+owner_id:user.id
 });
 
 alert(
