@@ -17,6 +17,33 @@ Login
 <a href="register.html">
 Register
 </a>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script>
+  const supabaseUrl = "YOUR_SUPABASE_URL";
+  const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function handleAuth() {
+    const { data, error } = await supabaseClient.auth.getSessionFromUrl({
+      storeSession: true
+    });
+
+    if (error) {
+      console.log("Auth error:", error.message);
+      return;
+    }
+
+    if (data.session) {
+      console.log("Login success:", data.session.user.email);
+
+      // redirect to clean page (remove token from URL)
+      window.location.href = "/File-sharing/";
+    }
+  }
+
+  handleAuth();
+</script>
 </body>
 </html>
