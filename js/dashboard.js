@@ -72,3 +72,48 @@ container.appendChild(div);
 });
 
 }
+
+
+import { uploadFile }
+from './upload.js';
+
+document
+.getElementById(
+'uploadBtn'
+)
+.addEventListener(
+'click',
+async ()=>{
+
+const file =
+document
+.getElementById(
+'fileInput'
+)
+.files[0];
+
+const title =
+document
+.getElementById(
+'title'
+)
+.value;
+
+if(!file){
+
+alert(
+'Select file'
+);
+
+return;
+
+}
+
+await uploadFile(
+file,
+title
+);
+
+location.reload();
+
+});
