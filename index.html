@@ -38,9 +38,8 @@ Register
     }
 
     // STEP 2: handle email redirect login
-    const { data, error } = await supabaseClient.auth.getSessionFromUrl({
-      storeSession: true
-    });
+    const { data, error } =
+  await supabaseClient.auth.exchangeCodeForSession(window.location.href);
 
     console.log("Auth result:", data, error);
 
