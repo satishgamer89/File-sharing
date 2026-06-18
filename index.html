@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Family Vault</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -22,34 +21,40 @@ Register
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-  const supabaseUrl = "https://imtjsxymsbeezpggdvpd.supabase.co";
-  const supabaseKey = "sb_publishable_wEKrcNR0Et7FixZIBMJg4Q_tiSIl4C1";
+  const supabaseClient = supabase.createClient(
+    "https://imtjsxymsbeezpggdvpd.supabase.co",
+    "sb_publishable_wEKrcNR0Et7FixZIBMJg4Q_tiSIl4C1"
+  );
 
-  const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+  async function init() {
+    console.log("Page loaded");
 
-  async function handleAuth() {
-    try {
-      // NEW METHOD (THIS FIXES YOUR ISSUE)
-      const { data, error } = await supabaseClient.auth.exchangeCodeForSession(window.location.href);
+    // STEP 1: check normal session
+    const { data: sessionData } = await supabaseClient.auth.getSession();
 
-      if (error) {
-        console.log("Auth error:", error.message);
-        return;
-      }
+    if (sessionData?.session) {
+      console.log("Already logged in:", sessionData.session.user.email);
+      return;
+    }
 
-      if (data?.session) {
-        console.log("LOGIN SUCCESS:", data.session.user.email);
+    // STEP 2: handle email redirect login
+    const { data, error } = await supabaseClient.auth.getSessionFromUrl({
+      storeSession: true
+    });
 
-        // clean URL
-        window.history.replaceState({}, document.title, "/File-sharing/");
-      }
+    console.log("Auth result:", data, error);
 
-    } catch (e) {
-      console.log("Fatal error:", e);
+    if (data?.session) {
+      console.log("LOGIN SUCCESS:", data.session.user.email);
+
+      // clean URL
+      window.history.replaceState({}, document.title, "/File-sharing/");
+    } else {
+      console.log("No session found in URL");
     }
   }
 
-  handleAuth();
+  init();
 </script>
 </body>
 </html>
