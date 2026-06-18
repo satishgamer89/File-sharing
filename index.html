@@ -17,6 +17,7 @@ Login
 <a href="register.html">
 Register
 </a>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -25,25 +26,39 @@ Register
 
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  async function handleAuth() {
-    const { data, error } = await supabaseClient.auth.getSessionFromUrl({
-      storeSession: true
-    });
+  async function init() {
+    try {
+      // Step 1: try normal session first
+      const { data: sessionData } = await supabaseClient.auth.getSession();
 
-    if (error) {
-      console.log("Auth error:", error.message);
-      return;
-    }
+      if (sessionData?.session) {
+        console.log("Already logged in:", sessionData.session.user.email);
+        return;
+      }
 
-    if (data.session) {
-      console.log("Login success:", data.session.user.email);
+      // Step 2: handle email redirect login
+      const { data, error } = await supabaseClient.auth.getSessionFromUrl({
+        storeSession: true
+      });
 
-      // redirect to clean page (remove token from URL)
-      window.location.href = "/File-sharing/";
+      if (error) {
+        console.log("Auth error:", error.message);
+        return;
+      }
+
+      if (data?.session) {
+        console.log("LOGIN SUCCESS:", data.session.user.email);
+
+        // IMPORTANT: stop weird reload / 404 behavior
+        window.location.href = "/File-sharing/";
+      }
+
+    } catch (e) {
+      console.log("Crash safe:", e);
     }
   }
 
-  handleAuth();
+  init();
 </script>
 </body>
 </html>
