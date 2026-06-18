@@ -50,26 +50,44 @@ return;
 }
 
 const container =
-document.getElementById(
-'documents'
-);
+document.getElementById('documents');
 
 container.innerHTML = '';
 
-data.forEach(doc=>{
+for(const doc of data){
 
 const div =
-document.createElement(
-'div'
+document.createElement('div');
+
+const {
+data: signedData
+}
+=
+await supabase
+.storage
+.from('private-docs')
+.createSignedUrl(
+doc.storage_path,
+3600
 );
 
 div.innerHTML = `
+<p>
 <b>${doc.title}</b>
+</p>
+
+<a href="${
+signedData.signedUrl
+}" target="_blank">
+Open File
+</a>
+
+<hr>
 `;
 
 container.appendChild(div);
 
-});
+}
 
 }
 
