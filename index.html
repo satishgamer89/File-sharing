@@ -17,7 +17,6 @@ Login
 <a href="register.html">
 Register
 </a>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
@@ -26,34 +25,26 @@ Register
     "sb_publishable_wEKrcNR0Et7FixZIBMJg4Q_tiSIl4C1"
   );
 
-  async function init() {
-    console.log("Page loaded");
+  async function handleAuth() {
+    console.log("Auth handler running");
 
-    // STEP 1: check normal session
-    const { data: sessionData } = await supabaseClient.auth.getSession();
-
-    if (sessionData?.session) {
-      console.log("Already logged in:", sessionData.session.user.email);
-      return;
-    }
-
-    // STEP 2: handle email redirect login
     const { data, error } =
-  await supabaseClient.auth.exchangeCodeForSession(window.location.href);
+      await supabaseClient.auth.exchangeCodeForSession(window.location.href);
 
     console.log("Auth result:", data, error);
 
     if (data?.session) {
       console.log("LOGIN SUCCESS:", data.session.user.email);
 
-      // clean URL
       window.history.replaceState({}, document.title, "/File-sharing/");
-    } else {
-      console.log("No session found in URL");
+    }
+
+    if (error) {
+      console.log("AUTH ERROR:", error.message);
     }
   }
 
-  init();
+  handleAuth();
 </script>
 <script>
   console.log("🔥 TEST SCRIPT IS RUNNING");
