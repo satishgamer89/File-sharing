@@ -26,20 +26,10 @@ Register
 
   const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-  async function init() {
+  async function handleAuth() {
     try {
-      // Step 1: try normal session first
-      const { data: sessionData } = await supabaseClient.auth.getSession();
-
-      if (sessionData?.session) {
-        console.log("Already logged in:", sessionData.session.user.email);
-        return;
-      }
-
-      // Step 2: handle email redirect login
-      const { data, error } = await supabaseClient.auth.getSessionFromUrl({
-        storeSession: true
-      });
+      // NEW METHOD (THIS FIXES YOUR ISSUE)
+      const { data, error } = await supabaseClient.auth.exchangeCodeForSession(window.location.href);
 
       if (error) {
         console.log("Auth error:", error.message);
@@ -49,16 +39,16 @@ Register
       if (data?.session) {
         console.log("LOGIN SUCCESS:", data.session.user.email);
 
-        // IMPORTANT: stop weird reload / 404 behavior
-        window.location.href = "/File-sharing/";
+        // clean URL
+        window.history.replaceState({}, document.title, "/File-sharing/");
       }
 
     } catch (e) {
-      console.log("Crash safe:", e);
+      console.log("Fatal error:", e);
     }
   }
 
-  init();
+  handleAuth();
 </script>
 </body>
 </html>
