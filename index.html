@@ -26,23 +26,16 @@ Register
   );
 
   async function handleAuth() {
-    console.log("Auth handler running");
+  const {
+    data: { session }
+  } = await supabaseClient.auth.getSession();
 
-    const { data, error } =
-      await supabaseClient.auth.exchangeCodeForSession(window.location.href);
+  console.log("Session:", session);
 
-    console.log("Auth result:", data, error);
-
-    if (data?.session) {
-      console.log("LOGIN SUCCESS:", data.session.user.email);
-
-      window.history.replaceState({}, document.title, "/File-sharing/");
-    }
-
-    if (error) {
-      console.log("AUTH ERROR:", error.message);
-    }
+  if (session) {
+    console.log("LOGIN SUCCESS:", session.user.email);
   }
+}
 
   handleAuth();
 </script>
