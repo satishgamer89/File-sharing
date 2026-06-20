@@ -44,10 +44,14 @@ btn.addEventListener("click", async () => {
     document.getElementById("password").value;
 
     const { error } =
-    await supabase.auth.signUp({
-        email,
-        password
-    });
+await supabase.auth.signUp({
+  email,
+  password,
+  options: {
+    emailRedirectTo:
+      "https://satishgamer89.github.io/File-sharing/"
+  }
+});
 
     if(error){
         document.getElementById("message").innerText =
