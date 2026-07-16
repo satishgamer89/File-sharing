@@ -71,16 +71,28 @@ doc.storage_path,
 3600
 );
 
-div.innerHTML = `
-<p>
-<b>${doc.title}</b>
-</p>
+div.className = "document-card";
 
-<a href="${
-signedData.signedUrl
-}" target="_blank">
-Open File
+div.innerHTML = `
+
+<div class="document-icon">
+📄
+</div>
+
+<div class="document-title">
+${doc.title}
+</div>
+
+<a
+class="preview-btn"
+href="${signedData.signedUrl}"
+target="_blank">
+
+👁 Preview
+
 </a>
+
+`;
 
 <hr>
 `;
