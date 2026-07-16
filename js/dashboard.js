@@ -94,9 +94,6 @@ target="_blank">
 
 `;
 
-<hr>
-`;
-
 container.appendChild(div);
 
 }
