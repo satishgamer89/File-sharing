@@ -57,8 +57,91 @@ await supabase.auth.signUp({
         document.getElementById("message").innerText =
         error.message;
     } else {
-        document.getElementById("message").innerText =
-        "Check your email for verification.";
+        document.getElementById("message").innerHTML = `
+<div style="
+    max-width:520px;
+    margin:25px auto;
+    padding:22px;
+    background:#ffffff;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    border-left:6px solid #22c55e;
+    font-family:Arial,sans-serif;
+    animation:fadeIn .4s ease;
+">
+
+    <div style="display:flex;align-items:center;gap:12px;">
+        <div style="
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            background:#22c55e;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            color:white;
+        ">
+            ✓
+        </div>
+
+        <div>
+            <h2 style="margin:0;color:#16a34a;">
+                Verification Email Sent
+            </h2>
+            <small style="color:#666;">
+                One more step to activate your account
+            </small>
+        </div>
+    </div>
+
+    <hr style="margin:18px 0;border:none;border-top:1px solid #eee;">
+
+    <p style="font-size:16px;color:#333;line-height:1.7;">
+        📧 We've sent a verification email to your registered email address.
+    </p>
+
+    <div style="
+        background:#fff7e6;
+        border:1px solid #ffd166;
+        border-radius:10px;
+        padding:14px;
+        margin:15px 0;
+    ">
+        <strong style="color:#b45309;">⚠️ Can't find the email?</strong>
+
+        <ul style="margin-top:10px;color:#555;line-height:1.8;">
+            <li>Check your <b>Spam / Junk</b> folder.</li>
+            <li>Click <b>"Not Spam"</b> if it's there.</li>
+            <li>This helps future emails arrive in your Inbox.</li>
+        </ul>
+    </div>
+
+    <div style="
+        background:#eff6ff;
+        border:1px solid #93c5fd;
+        border-radius:10px;
+        padding:14px;
+        color:#1e3a8a;
+    ">
+        💡 After verifying your email, return to the website and log in to continue.
+    </div>
+
+</div>
+
+<style>
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+</style>
+`;
     }
 
 });
