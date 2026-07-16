@@ -93,12 +93,8 @@ target="_blank">
 </a>
 
 `;
-
 container.appendChild(div);
 
-}
-
-}
 
 
 import { uploadFile }
