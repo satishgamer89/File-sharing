@@ -1,7 +1,38 @@
 @media (max-width:768px){
 
+.dashboard{
+    padding:15px;
 }
 
-@media (max-width:480px){
+.topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.user-section{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.logout-btn{
+    width:100%;
+}
+
+.documents-grid{
+    grid-template-columns:1fr;
+}
+
+.upload-card{
+    padding:20px;
+}
+
+.upload-card input,
+.upload-card button{
+    width:100%;
+    box-sizing:border-box;
+}
 
 }
