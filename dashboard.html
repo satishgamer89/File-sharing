@@ -7,46 +7,60 @@
 
 <body>
 
-<h1>Family Vault</h1>
+<div class="dashboard">
 
-<p id="userEmail"></p>
+<header class="topbar">
 
-<hr>
+<div class="logo">
+📁 Family Vault
+</div>
 
-<h3>Upload Document</h3>
+<div class="user-section">
+
+<span id="userEmail"></span>
+
+<button id="logoutBtn" class="logout-btn">
+Logout
+</button>
+
+</div>
+
+</header>
+
+<div class="upload-card">
+
+<h2>📤 Upload Document</h2>
 
 <input
 type="text"
 id="title"
 placeholder="Document Title">
 
-<br><br>
-
 <input
 type="file"
 id="fileInput">
 
-<br><br>
-
 <button id="uploadBtn">
-Upload
+Upload Document
 </button>
 
-<br><br>
+</div>
 
-<button id="logoutBtn">
-Logout
-</button>
+<div class="documents-header">
 
-<hr>
+<h2>
+My Documents
+</h2>
 
-<h3>My Documents</h3>
+</div>
 
-<div id="documents"></div>
+<div id="documents" class="documents-grid">
 
-<script type="module"
-src="./js/dashboard.js">
-</script>
+</div>
+
+</div>
+
+<script type="module" src="./js/dashboard.js"></script>
 
 </body>
 </html>
