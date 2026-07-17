@@ -1,5 +1,6 @@
 import { supabase }
 from './supabase.js';
+console.log("Dashboard JS loaded");
 
 const {
 data: { session }
