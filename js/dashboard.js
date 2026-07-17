@@ -57,6 +57,7 @@ async function loadDocuments() {
   const container = document.getElementById("documents");
 
   container.innerHTML = "";
+  document.getElementById("docCount").innerText = data.length;
 
   for (const doc of data) {
     console.log("Processing:", doc);
