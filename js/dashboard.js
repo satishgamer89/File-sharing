@@ -105,6 +105,38 @@ class="delete-btn">
 `;
 
     container.appendChild(div);
+    
+div.querySelector(".delete-btn")
+.addEventListener("click", async () => {
+
+const ok = confirm("Delete this document?");
+
+if(!ok) return;
+
+const { error: storageError } =
+await supabase.storage
+.from("private-docs")
+.remove([doc.storage_path]);
+
+if(storageError){
+alert(storageError.message);
+return;
+}
+
+const { error: dbError } =
+await supabase
+.from("documents")
+.delete()
+.eq("id", doc.id);
+
+if(dbError){
+alert(dbError.message);
+return;
+}
+
+div.remove();
+
+});
   }
 }
 
