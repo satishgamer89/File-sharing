@@ -7,6 +7,7 @@ data: { session }
 }
 =
 await supabase.auth.getSession();
+console.log("Session:", session);
 
 if(!session){
 
@@ -15,10 +16,12 @@ window.location =
 
 }
 
+console.log("Setting email...");
 document.getElementById(
 'userEmail'
 ).innerText =
 session.user.email;
+
 
 document.getElementById(
 'logoutBtn'
@@ -33,9 +36,11 @@ window.location =
 
 });
 
+console.log("Calling loadDocuments()");
 loadDocuments();
 
 async function loadDocuments(){
+console.log("Inside loadDocuments()");
 
 const { data,error } =
 await supabase
@@ -56,6 +61,7 @@ document.getElementById('documents');
 container.innerHTML = '';
 
 for(const doc of data){
+console.log("Processing:", doc);
 
 const div =
 document.createElement('div');
