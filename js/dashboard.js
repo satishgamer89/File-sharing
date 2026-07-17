@@ -228,6 +228,38 @@ div.remove();
 document
   .getElementById("uploadBtn")
   .addEventListener("click", async () => {
+    // --------------------
+// Search Documents
+// --------------------
+
+document
+.getElementById("searchInput")
+.addEventListener("input", function () {
+
+const search =
+this.value.toLowerCase();
+
+const cards =
+document.querySelectorAll(".document-card");
+
+cards.forEach(card => {
+
+const title =
+card.dataset.title || "";
+
+if(title.includes(search)){
+
+card.style.display = "";
+
+}else{
+
+card.style.display = "none";
+
+}
+
+});
+
+});
     const file =
       document.getElementById("fileInput").files[0];
 
