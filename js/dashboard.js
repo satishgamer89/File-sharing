@@ -365,7 +365,22 @@ card.style.display = "none";
       return;
     }
 
-    await uploadFile(file, title);
+    const result =
+await uploadFile(file, title);
 
-    location.reload();
+if(result.success){
+
+showToast(result.message,"success");
+
+setTimeout(()=>{
+
+location.reload();
+
+},1000);
+
+}else{
+
+showToast(result.message,"error");
+
+}
   });
