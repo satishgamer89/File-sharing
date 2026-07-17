@@ -35,6 +35,64 @@ document
 // Load Documents
 // --------------------
 
+// --------------------
+// Toast Notification
+// --------------------
+
+function showToast(message, type = "success") {
+
+const toast = document.getElementById("toast");
+
+toast.innerText = message;
+
+toast.className = "toast " + type;
+
+toast.classList.add("show");
+
+setTimeout(() => {
+
+toast.classList.remove("show");
+
+}, 3000);
+
+}
+
+// --------------------
+// Custom Delete Dialog
+// --------------------
+
+function confirmDelete(message){
+
+return new Promise((resolve)=>{
+
+const modal =
+document.getElementById("deleteModal");
+
+document.getElementById("deleteMessage").innerText =
+message;
+
+modal.classList.add("show");
+
+document.getElementById("cancelDelete").onclick = ()=>{
+
+modal.classList.remove("show");
+
+resolve(false);
+
+};
+
+document.getElementById("confirmDelete").onclick = ()=>{
+
+modal.classList.remove("show");
+
+resolve(true);
+
+};
+
+});
+
+}
+
 loadDocuments();
 
 async function loadDocuments() {
