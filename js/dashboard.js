@@ -59,6 +59,42 @@ async function loadDocuments() {
   container.innerHTML = "";
   document.getElementById("docCount").innerText = data.length;
 
+  // Calculate total storage
+let totalBytes = 0;
+
+data.forEach(doc => {
+    totalBytes += doc.file_size || 0;
+});
+
+let storageText;
+
+if(totalBytes < 1024){
+
+storageText = totalBytes + " B";
+
+}
+else if(totalBytes < 1024 * 1024){
+
+storageText =
+(totalBytes / 1024).toFixed(1) + " KB";
+
+}
+else if(totalBytes < 1024 * 1024 * 1024){
+
+storageText =
+(totalBytes / (1024 * 1024)).toFixed(2) + " MB";
+
+}
+else{
+
+storageText =
+(totalBytes / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+
+}
+
+document.getElementById("storageUsed").innerText =
+storageText;
+
   for (const doc of data) {
     console.log("Processing:", doc);
 
