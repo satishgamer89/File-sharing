@@ -69,11 +69,90 @@ async function loadDocuments() {
       .from("private-docs")
       .createSignedUrl(doc.storage_path, 3600);
 
-div.innerHTML = `
+const extension = doc.storage_path
+.split(".")
+.pop()
+.toLowerCase();
 
-<div class="document-icon">
-📄
-</div>
+let previewHTML = "";
+
+if(["jpg","jpeg","png","gif","webp"].includes(extension)){
+
+previewHTML = `
+<img
+src="${signedData.signedUrl}"
+class="file-thumb"
+alt="Preview">
+`;
+
+}
+
+else if(extension==="pdf"){
+
+previewHTML = `
+<div class="file-icon pdf-icon">📕</div>
+`;
+
+}
+
+else if(["doc","docx"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon word-icon">📘</div>
+`;
+
+}
+
+else if(["xls","xlsx"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon excel-icon">📗</div>
+`;
+
+}
+
+else if(["ppt","pptx"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon ppt-icon">📙</div>
+`;
+
+}
+
+else if(["mp4","mov","avi"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon video-icon">🎥</div>
+`;
+
+}
+
+else if(["mp3","wav"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon audio-icon">🎵</div>
+`;
+
+}
+
+else if(["zip","rar","7z"].includes(extension)){
+
+previewHTML = `
+<div class="file-icon zip-icon">📦</div>
+`;
+
+}
+
+else{
+
+previewHTML = `
+<div class="file-icon">📄</div>
+`;
+
+}
+
+div.innerHTML = `
+${previewHTML}
 
 <div class="document-title">
 ${doc.title}
