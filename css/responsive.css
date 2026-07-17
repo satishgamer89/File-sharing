@@ -1,38 +1,94 @@
-@media (max-width:768px){
+@media(max-width:768px){
 
 .dashboard{
-    padding:15px;
+
+padding:16px;
+
 }
 
 .topbar{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:15px;
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+padding:18px;
+
 }
 
 .user-section{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+
+width:100%;
+
+flex-direction:column;
+
+align-items:flex-start;
+
 }
 
 .logout-btn{
-    width:100%;
+
+width:100%;
+
 }
 
-.documents-grid{
-    grid-template-columns:1fr;
+.logo{
+
+font-size:26px;
+
 }
 
 .upload-card{
-    padding:20px;
+
+padding:20px;
+
 }
 
-.upload-card input,
-.upload-card button{
-    width:100%;
-    box-sizing:border-box;
+.upload-card h2{
+
+font-size:24px;
+
+}
+
+.documents-header h2{
+
+font-size:28px;
+
+}
+
+.documents-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+.document-card{
+
+padding:18px;
+
+}
+
+.file-icon{
+
+font-size:65px;
+
+}
+
+.file-thumb{
+
+width:75px;
+height:75px;
+
+}
+
+.document-title{
+
+font-size:19px;
+
 }
 
 }
