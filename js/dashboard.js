@@ -185,6 +185,7 @@ class="delete-btn">
 `;
 
     container.appendChild(div);
+    div.dataset.title = doc.title.toLowerCase();
     
 div.querySelector(".delete-btn")
 .addEventListener("click", async () => {
