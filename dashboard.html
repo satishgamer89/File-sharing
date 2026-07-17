@@ -17,25 +17,93 @@
 
 <header class="topbar">
 
-<div class="logo">
+<div>
+
+<h1 class="logo">
 📁 Family Vault
+</h1>
+
+<p class="welcome">
+Welcome Back 👋
+</p>
+
+<p id="userEmail" class="email"></p>
+
 </div>
 
-<div class="user-section">
+<button
+id="logoutBtn"
+class="logout-btn">
 
-<span id="userEmail"></span>
-
-<button id="logoutBtn" class="logout-btn">
 Logout
-</button>
 
-</div>
+</button>
 
 </header>
 
+
+<div class="stats">
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📄
+</div>
+
+<div>
+
+<h2 id="docCount">
+0
+</h2>
+
+<p>
+Documents
+</p>
+
+</div>
+
+</div>
+
+<div class="stat-card">
+
+<div class="stat-icon">
+💾
+</div>
+
+<div>
+
+<h2 id="storageUsed">
+--
+</h2>
+
+<p>
+Storage
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="search-card">
+
+<input
+id="searchInput"
+type="text"
+placeholder="🔍 Search documents...">
+
+</div>
+
+
 <div class="upload-card">
 
-<h2>📤 Upload Document</h2>
+<h2>
+
+📤 Upload Document
+
+</h2>
 
 <input
 type="text"
@@ -46,27 +114,38 @@ placeholder="Document Title">
 type="file"
 id="fileInput">
 
-<button id="uploadBtn">
+<button
+id="uploadBtn">
+
 Upload Document
+
 </button>
 
 </div>
 
+
 <div class="documents-header">
 
 <h2>
+
 My Documents
+
 </h2>
 
 </div>
 
-<div id="documents" class="documents-grid">
+<div
+id="documents"
+class="documents-grid">
 
 </div>
 
 </div>
 
-<script type="module" src="./js/dashboard.js"></script>
+<script
+type="module"
+src="./js/dashboard.js">
+</script>
 
 </body>
 </html>
