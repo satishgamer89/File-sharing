@@ -69,21 +69,40 @@ async function loadDocuments() {
       .from("private-docs")
       .createSignedUrl(doc.storage_path, 3600);
 
-    div.innerHTML = `
-      <div class="document-icon">📄</div>
+div.innerHTML = `
 
-      <div class="document-title">
-        ${doc.title}
-      </div>
+<div class="document-icon">
+📄
+</div>
 
-      <a
-        class="preview-btn"
-        href="${signedData.signedUrl}"
-        target="_blank"
-      >
-        👁 Preview
-      </a>
-    `;
+<div class="document-title">
+${doc.title}
+</div>
+
+<div class="document-actions">
+
+<a
+class="preview-btn"
+href="${signedData.signedUrl}"
+target="_blank">
+👁 Preview
+</a>
+
+<a
+class="download-btn"
+href="${signedData.signedUrl}"
+download>
+⬇ Download
+</a>
+
+<button
+class="delete-btn">
+🗑 Delete
+</button>
+
+</div>
+
+`;
 
     container.appendChild(div);
   }
