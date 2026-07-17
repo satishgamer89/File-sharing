@@ -21,8 +21,12 @@ file
 );
 
 if(error){
-alert(error.message);
-return;
+
+return{
+success:false,
+message:error.message
+};
+
 }
 
 const {
@@ -65,6 +69,7 @@ else if(["zip","rar","7z"].includes(extension)){
 category = "Archive";
 }
 
+const { error: dbError } =
 await supabase
 .from('documents')
 .insert({
@@ -81,8 +86,20 @@ file_size:file.size
 
 });
 
-alert(
-'Upload Success'
-);
+if(dbError){
+
+return{
+success:false,
+message:dbError.message
+};
+
+}
+
+return{
+
+success:true,
+message:"Upload Success"
+
+};
 
 }
