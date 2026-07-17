@@ -1,124 +1,165 @@
-
-
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 body{
 
 margin:0;
+
 font-family:Arial,sans-serif;
-background:#eef2f7;
+
+background:#eef3f9;
 
 }
 
 .dashboard{
 
-max-width:1200px;
+max-width:700px;
+
 margin:auto;
-padding:30px;
+
+padding:18px;
 
 }
 
 .topbar{
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-
 background:white;
 
-padding:20px;
+border-radius:20px;
 
-border-radius:15px;
+padding:22px;
 
-box-shadow:0 8px 20px rgba(0,0,0,.08);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 
-margin-bottom:30px;
+margin-bottom:20px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-start;
 
 }
 
 .logo{
 
-font-size:28px;
-font-weight:bold;
+margin:0;
+
+font-size:30px;
+
 color:#2563eb;
 
 }
 
-.user-section{
+.welcome{
+
+margin:8px 0 3px;
+
+color:#555;
+
+}
+
+.email{
+
+font-size:14px;
+
+color:#888;
+
+word-break:break-word;
+
+}
+
+.stats{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:15px;
+
+margin-bottom:20px;
+
+}
+
+.stat-card{
+
+background:white;
+
+padding:18px;
+
+border-radius:18px;
 
 display:flex;
+
 align-items:center;
+
+gap:15px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.stat-icon{
+
+font-size:40px;
+
+}
+
+.search-card{
+
+background:white;
+
+padding:15px;
+
+border-radius:18px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+margin-bottom:20px;
+
+}
+
+.search-card input{
+
+width:100%;
+
+border:none;
+
+outline:none;
+
+font-size:16px;
+
+}
+
+.upload-card{
+
+background:white;
+
+padding:20px;
+
+border-radius:20px;
+
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+display:flex;
+
+flex-direction:column;
+
 gap:15px;
 
 }
 
-
-/* ===========================
-   Document Action Buttons
-=========================== */
-
-.document-actions{
-display:flex;
-flex-direction:column;
-gap:12px;
-margin-top:18px;
-}
-
-.preview-btn,
-.download-btn,
-.delete-btn{
-
-display:block;
-width:100%;
+.upload-card input{
 
 padding:14px;
 
-border:none;
+border:1px solid #ddd;
+
 border-radius:12px;
 
-text-align:center;
-text-decoration:none;
-
 font-size:16px;
-font-weight:600;
 
-cursor:pointer;
-
-transition:0.25s;
-
-}
-
-.preview-btn{
-
-background:#2563eb;
-color:white;
-
-}
-
-.download-btn{
-
-background:#16a34a;
-color:white;
-
-}
-
-.delete-btn{
-
-background:#ef4444;
-color:white;
-
-}
-
-.preview-btn:hover{
-background:#1d4ed8;
-}
-
-.download-btn:hover{
-background:#15803d;
-}
-
-.delete-btn:hover{
-background:#dc2626;
 }
