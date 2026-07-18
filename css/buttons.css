@@ -1,34 +1,36 @@
+/* ===================================
+   GLOBAL BUTTON
+=================================== */
+
 button{
-
-background:#2563eb;
-
-color:white;
 
 border:none;
 
-padding:12px 20px;
-
-border-radius:10px;
-
 cursor:pointer;
 
-font-size:15px;
+font-family:inherit;
 
-transition:.3s;
-
-}
-
-button:hover{
-
-background:#1d4ed8;
-
-transform:translateY(-2px);
+transition:.25s;
 
 }
+
+/* ===================================
+   LOGOUT
+=================================== */
 
 .logout-btn{
 
 background:#ef4444;
+
+color:white;
+
+padding:12px 24px;
+
+border-radius:12px;
+
+font-size:15px;
+
+font-weight:600;
 
 }
 
@@ -36,30 +38,83 @@ background:#ef4444;
 
 background:#dc2626;
 
+transform:translateY(-2px);
+
 }
 
-.preview-btn,
-.download-btn{
+/* ===================================
+   UPLOAD
+=================================== */
 
-display:block;
+#uploadBtn{
 
 width:100%;
 
-padding:14px;
+height:52px;
 
-text-align:center;
+background:#2563eb;
 
-text-decoration:none;
+color:white;
 
 font-size:16px;
 
 font-weight:600;
 
+border-radius:14px;
+
+}
+
+#uploadBtn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+}
+
+/* ===================================
+   DOCUMENT BUTTONS
+=================================== */
+
+.document-actions{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
+margin-top:15px;
+
+}
+
+.preview-btn{
+
+grid-column:1/3;
+
+}
+
+.preview-btn,
+.download-btn,
+.delete-btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+height:46px;
+
 border-radius:12px;
 
-transition:.25s;
+text-decoration:none;
 
-color:white;
+font-size:15px;
+
+font-weight:600;
+
+transition:.25s;
 
 }
 
@@ -67,29 +122,19 @@ color:white;
 
 background:#2563eb;
 
-}
-
-.preview-btn:hover{
-
-background:#1d4ed8;
+color:white;
 
 }
 
 .download-btn{
 
-background:#16a34a;
+background:#22c55e;
 
-}
-
-.download-btn:hover{
-
-background:#15803d;
+color:white;
 
 }
 
 .delete-btn{
-
-width:100%;
 
 background:#ef4444;
 
@@ -97,9 +142,26 @@ color:white;
 
 }
 
+.preview-btn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+}
+
+.download-btn:hover{
+
+background:#16a34a;
+
+transform:translateY(-2px);
+
+}
+
 .delete-btn:hover{
 
 background:#dc2626;
 
-}
+transform:translateY(-2px);
 
+}
