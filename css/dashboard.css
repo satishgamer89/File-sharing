@@ -425,7 +425,7 @@ margin-bottom:25px;
 
 .stat-card{
 
-background:white;
+background:#fff;
 
 padding:18px;
 
@@ -435,9 +435,11 @@ display:flex;
 
 align-items:center;
 
-gap:15px;
+gap:14px;
 
-box-shadow:0 8px 22px rgba(0,0,0,.06);
+min-height:95px;
+
+box-shadow:0 8px 18px rgba(0,0,0,.08);
 
 transition:.25s;
 
@@ -451,7 +453,21 @@ transform:translateY(-3px);
 
 .stat-icon{
 
+width:55px;
+
+height:55px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 font-size:34px;
+
+background:#f5f8ff;
+
+border-radius:14px;
 
 }
 
