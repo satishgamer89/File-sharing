@@ -281,13 +281,18 @@ BUTTONS
 
 .document-actions{
 
-display:grid;
-
-grid-template-columns:1fr 1fr;
+display:flex;
 
 gap:10px;
 
-margin-top:15px;
+margin-top:18px;
+
+}
+
+.document-actions a,
+.document-actions button{
+
+flex:1;
 
 }
 
@@ -297,7 +302,7 @@ grid-column:1 / 3;
 
 }
 
-..preview-btn,
+.preview-btn,
 .download-btn,
 .delete-btn{
 
@@ -323,6 +328,21 @@ transition:.25s;
 
 gap:8px;
 
+}
+
+.preview-btn{
+background:#2563eb;
+color:white;
+}
+
+.download-btn{
+background:#22c55e;
+color:white;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
 }
 
 .preview-btn:hover{
