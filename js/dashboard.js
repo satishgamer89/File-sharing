@@ -344,6 +344,7 @@ class="delete-btn">
 `;
 
     container.appendChild(div);
+    console.log(container.innerHTML);
     div.dataset.title = doc.title.toLowerCase();
     
 div.querySelector(".delete-btn")
