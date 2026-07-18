@@ -36,6 +36,17 @@ transform:translateY(-5px);
 
 }
 
+.document-actions{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:10px;
+
+margin-top:8px;
+
+}
 
 .document-info{
 
