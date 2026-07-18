@@ -93,7 +93,56 @@ resolve(true);
 
 }
 
+function formatFileSize(bytes){
+
+if(!bytes) return "0 KB";
+
+const sizes = ["Bytes","KB","MB","GB"];
+
+const i = Math.floor(Math.log(bytes) / Math.log(1024));
+
+return (
+(bytes / Math.pow(1024,i)).toFixed(2) +
+" " +
+sizes[i]
+);
+
+}
+
 loadDocuments();
+
+// --------------------
+// Search Documents
+// --------------------
+
+document
+.getElementById("searchInput")
+.addEventListener("input", function () {
+
+const search =
+this.value.toLowerCase();
+
+const cards =
+document.querySelectorAll(".document-card");
+
+cards.forEach(card => {
+
+const title =
+card.dataset.title || "";
+
+if(title.includes(search)){
+
+card.style.display = "";
+
+}else{
+
+card.style.display = "none";
+
+}
+
+});
+
+});
 
 async function loadDocuments() {
   console.log("Inside loadDocuments()");
@@ -338,55 +387,9 @@ div.remove();
 document
   .getElementById("uploadBtn")
   .addEventListener("click", async () => {
-    
-    
-function formatFileSize(bytes){
-
-if(!bytes) return "0 KB";
-
-const sizes = ["Bytes","KB","MB","GB"];
-
-const i = Math.floor(Math.log(bytes) / Math.log(1024));
-
-return (
-(bytes / Math.pow(1024,i)).toFixed(2) +
-" " +
-sizes[i]
-);
-
-}
     // --------------------
 // Search Documents
 // --------------------
-
-document
-.getElementById("searchInput")
-.addEventListener("input", function () {
-
-const search =
-this.value.toLowerCase();
-
-const cards =
-document.querySelectorAll(".document-card");
-
-cards.forEach(card => {
-
-const title =
-card.dataset.title || "";
-
-if(title.includes(search)){
-
-card.style.display = "";
-
-}else{
-
-card.style.display = "none";
-
-}
-
-});
-
-});
     const file =
       document.getElementById("fileInput").files[0];
 
