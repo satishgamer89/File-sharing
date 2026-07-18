@@ -281,31 +281,19 @@ BUTTONS
 
 .document-actions{
 
-display:flex;
+display:grid;
 
-flex-direction:column;
+grid-template-columns:1fr 1fr;
 
-gap:12px;
+gap:10px;
+
+margin-top:15px;
 
 }
 
-.preview-btn,
-.download-btn,
-.delete-btn{
+.preview-btn{
 
-display:block;
-
-padding:13px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-font-size:15px;
-
-transition:.3s;
+grid-column:1 / 3;
 
 }
 
