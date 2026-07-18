@@ -309,31 +309,31 @@ transition:.3s;
 
 }
 
-.preview-btn{
-
-background:#2563eb;
-
-color:white;
-
-}
-
-.download-btn{
-
-background:#22c55e;
-
-color:white;
-
-}
-
+..preview-btn,
+.download-btn,
 .delete-btn{
 
-background:#ef4444;
+display:flex;
+align-items:center;
+justify-content:center;
 
-color:white;
+width:100%;
+
+height:46px;
 
 border:none;
+border-radius:12px;
+
+text-decoration:none;
+
+font-size:15px;
+font-weight:600;
 
 cursor:pointer;
+
+transition:.25s;
+
+gap:8px;
 
 }
 
