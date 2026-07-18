@@ -1,4 +1,41 @@
-@media(max-width:768px){
+/* ===================================
+   TABLETS
+=================================== */
+
+@media (max-width:992px){
+
+.dashboard{
+
+padding:20px;
+
+}
+
+.stats-section{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.documents-grid{
+
+grid-template-columns:
+repeat(auto-fill,minmax(250px,1fr));
+
+}
+
+.topbar{
+
+padding:20px;
+
+}
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width:768px){
 
 .dashboard{
 
@@ -6,100 +43,7 @@ padding:16px;
 
 }
 
-.topbar{
-
-flex-direction:column;
-
-align-items:flex-start;
-
-gap:15px;
-
-padding:18px;
-
-}
-
-.user-section{
-
-width:100%;
-
-flex-direction:column;
-
-align-items:flex-start;
-
-}
-
-.logout-btn{
-
-width:100%;
-
-}
-
-.logo{
-
-font-size:26px;
-
-}
-
-.upload-card{
-
-padding:20px;
-
-}
-
-.upload-card h2{
-
-font-size:24px;
-
-}
-
-.documents-header h2{
-
-font-size:28px;
-
-}
-
-.documents-grid{
-
-grid-template-columns:1fr;
-
-gap:18px;
-
-}
-
-.document-card{
-
-padding:18px;
-
-}
-
-.file-icon{
-
-font-size:65px;
-
-}
-
-.file-thumb{
-
-width:75px;
-height:75px;
-
-}
-
-.document-title{
-
-font-size:19px;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.stats-section{
-
-grid-template-columns:1fr;
-
-}
+/* Header */
 
 .topbar{
 
@@ -120,6 +64,166 @@ width:100%;
 .logout-btn{
 
 width:100%;
+
+}
+
+/* Stats */
+
+.stats-section{
+
+grid-template-columns:1fr;
+
+gap:14px;
+
+}
+
+.stat-card{
+
+padding:16px;
+
+}
+
+/* Upload */
+
+.upload-card{
+
+padding:18px;
+
+}
+
+.upload-card h2{
+
+font-size:22px;
+
+}
+
+/* Search */
+
+.search-box{
+
+padding:14px;
+
+}
+
+/* Document Grid */
+
+.documents-grid{
+
+grid-template-columns:1fr;
+
+gap:18px;
+
+}
+
+/* Document */
+
+.document-card{
+
+padding:16px;
+
+}
+
+.file-thumb{
+
+height:160px;
+
+}
+
+.file-icon{
+
+height:160px;
+
+font-size:58px;
+
+}
+
+.document-title{
+
+font-size:17px;
+
+}
+
+/* Buttons */
+
+.document-actions{
+
+grid-template-columns:1fr;
+
+}
+
+.preview-btn{
+
+grid-column:auto;
+
+}
+
+.preview-btn,
+.download-btn,
+.delete-btn{
+
+height:44px;
+
+font-size:14px;
+
+}
+
+}
+
+/* ===================================
+   SMALL PHONES
+=================================== */
+
+@media (max-width:480px){
+
+.logo{
+
+font-size:24px;
+
+}
+
+.welcome{
+
+font-size:14px;
+
+}
+
+.email{
+
+font-size:13px;
+
+}
+
+.stat-card{
+
+min-height:80px;
+
+}
+
+.stat-icon{
+
+width:48px;
+
+height:48px;
+
+font-size:26px;
+
+}
+
+.stat-card h2{
+
+font-size:20px;
+
+}
+
+.documents-header h2{
+
+font-size:24px;
+
+}
+
+.upload-card h2{
+
+font-size:20px;
 
 }
 
