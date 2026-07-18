@@ -1,366 +1,36 @@
+/* ====================================
+   GLOBAL
+==================================== */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#eef3fb;
-    color:#222;
+
+font-family:Arial,sans-serif;
+
+background:#f4f7fc;
+
+color:#222;
+
 }
 
 .dashboard{
-    max-width:1180px;
-    margin:auto;
-    padding:25px;
-}
 
-/* =========================
-   TOP BAR
-========================= */
-
-.topbar{
-
-background:white;
-
-padding:22px 28px;
-
-border-radius:22px;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-margin-bottom:28px;
-
-}
-
-.logo{
-
-font-size:30px;
-
-font-weight:700;
-
-color:#2563eb;
-
-}
-
-.user-section{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-}
-
-#userEmail{
-
-font-size:15px;
-
-color:#666;
-
-}
-
-.logout-btn{
-
-background:#ef4444;
-
-color:white;
-
-padding:12px 22px;
-
-border:none;
-
-border-radius:12px;
-
-cursor:pointer;
-
-font-weight:bold;
-
-transition:.3s;
-
-}
-
-.logout-btn:hover{
-
-background:#dc2626;
-
-}
-
-/* =========================
-UPLOAD
-========================= */
-
-.upload-card{
-
-background:white;
-
-padding:28px;
-
-border-radius:22px;
-
-box-shadow:0 12px 35px rgba(0,0,0,.08);
-
-margin-bottom:35px;
-
-}
-
-.upload-card h2{
-
-margin-bottom:20px;
-
-font-size:30px;
-
-}
-
-.upload-card input{
-
-width:100%;
-
-padding:15px;
-
-margin-bottom:15px;
-
-border:1px solid #ddd;
-
-border-radius:12px;
-
-font-size:15px;
-
-}
-
-#uploadBtn{
-
-width:100%;
-
-background:#2563eb;
-
-color:white;
-
-padding:15px;
-
-border:none;
-
-border-radius:14px;
-
-font-size:16px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#uploadBtn:hover{
-
-background:#1d4ed8;
-
-}
-
-/* =========================
-HEADER
-========================= */
-
-.documents-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:18px;
-
-}
-
-.documents-header h2{
-
-font-size:34px;
-
-}
-
-/* =========================
-GRID
-========================= */
-
-.documents-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fill,minmax(270px,1fr));
-
-gap:24px;
-
-}
-
-/* =========================
-CARD
-========================= */
-
-.document-card{
-
-background:white;
-
-border-radius:22px;
-
-padding:18px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-transition:.25s;
-
-text-align:center;
-
-}
-
-.document-card:hover{
-
-transform:translateY(-5px);
-
-}
-
-.file-thumb{
-
-width:90px;
-
-height:90px;
-
-border-radius:15px;
-
-object-fit:cover;
+max-width:1200px;
 
 margin:auto;
 
-display:block;
+padding:25px;
 
 }
 
-.file-icon{
-
-font-size: 55px;
-
-margin-bottom:18px 0;
-
-}
-
-.document-title{
-
-font-size:18px;
-
-font-weight:bold;
-
-margin:12px 0;
-
-}
-
-.document-meta{
-
-color:#666;
-
-font-size:14px;
-
-line-height:24px;
-
-margin-bottom:20px;
-
-}
-
-/* =========================
-BUTTONS
-========================= */
-
-.document-actions{
-
-display:flex;
-
-gap:10px;
-
-margin-top:18px;
-
-}
-
-.document-actions a,
-.document-actions button{
-
-flex:1;
-
-}
-
-
-.preview-btn,
-.download-btn,
-.delete-btn{
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-width:100%;
-
-height:46px;
-
-border:none;
-border-radius:12px;
-
-text-decoration:none;
-
-font-size:15px;
-font-weight:600;
-
-cursor:pointer;
-
-transition:.25s;
-
-gap:8px;
-
-}
-
-.preview-btn{
-background:#2563eb;
-color:white;
-}
-
-.download-btn{
-background:#22c55e;
-color:white;
-}
-
-.delete-btn{
-background:#ef4444;
-color:white;
-}
-
-.preview-btn:hover{
-
-background:#1d4ed8;
-
-}
-
-.download-btn:hover{
-
-background:#16a34a;
-
-}
-
-.delete-btn:hover{
-
-background:#dc2626;
-
-}
-
-/* ===========================
-HEADER V2
-=========================== */
+/* ====================================
+HEADER
+==================================== */
 
 .topbar{
 
@@ -370,11 +40,11 @@ justify-content:space-between;
 
 align-items:center;
 
-background:white;
+background:#fff;
 
 padding:24px;
 
-border-radius:20px;
+border-radius:22px;
 
 box-shadow:0 10px 30px rgba(0,0,0,.06);
 
@@ -382,9 +52,15 @@ margin-bottom:25px;
 
 }
 
-.logo{
+.header-left{
 
-margin:0;
+display:flex;
+
+flex-direction:column;
+
+}
+
+.logo{
 
 font-size:30px;
 
@@ -392,15 +68,17 @@ font-weight:700;
 
 color:#2563eb;
 
+margin-bottom:8px;
+
 }
 
 .welcome{
 
-margin:8px 0 5px;
-
 font-size:15px;
 
 color:#666;
+
+margin-bottom:5px;
 
 }
 
@@ -413,6 +91,10 @@ color:#999;
 word-break:break-word;
 
 }
+
+/* ====================================
+STATS
+==================================== */
 
 .stats-section{
 
@@ -430,21 +112,21 @@ margin-bottom:25px;
 
 background:#fff;
 
-padding:18px;
+border-radius:20px;
 
-border-radius:18px;
+padding:18px;
 
 display:flex;
 
 align-items:center;
 
-gap:14px;
+gap:15px;
 
-min-height:95px;
-
-box-shadow:0 8px 18px rgba(0,0,0,.08);
+box-shadow:0 8px 18px rgba(0,0,0,.06);
 
 transition:.25s;
+
+min-height:95px;
 
 }
 
@@ -456,9 +138,9 @@ transform:translateY(-3px);
 
 .stat-icon{
 
-width:55px;
+width:56px;
 
-height:55px;
+height:56px;
 
 display:flex;
 
@@ -466,19 +148,31 @@ justify-content:center;
 
 align-items:center;
 
-font-size:34px;
-
-background:#f5f8ff;
+font-size:30px;
 
 border-radius:14px;
+
+background:#eef4ff;
+
+}
+
+.stat-card:nth-child(2) .stat-icon{
+
+background:#eefcf2;
+
+}
+
+.stat-card:nth-child(3) .stat-icon{
+
+background:#fff6ea;
 
 }
 
 .stat-card h2{
 
-margin:0;
-
 font-size:24px;
+
+margin-bottom:4px;
 
 color:#2563eb;
 
@@ -486,25 +180,27 @@ color:#2563eb;
 
 .stat-card p{
 
-margin-top:5px;
-
 font-size:14px;
 
 color:#777;
 
 }
 
+/* ====================================
+SEARCH
+==================================== */
+
 .search-box{
 
-background:white;
+background:#fff;
 
-padding:15px;
+padding:16px;
 
 border-radius:18px;
 
-box-shadow:0 8px 22px rgba(0,0,0,.06);
+box-shadow:0 8px 18px rgba(0,0,0,.06);
 
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
@@ -516,8 +212,187 @@ border:none;
 
 outline:none;
 
+background:none;
+
 font-size:16px;
 
-background:none;
+}
+
+/* ====================================
+DOCUMENT HEADER
+==================================== */
+
+.documents-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin:25px 0 18px;
+
+}
+
+.documents-header h2{
+
+font-size:28px;
+
+font-weight:700;
+
+color:#222;
+
+}
+
+/* ====================================
+UPLOAD CARD
+==================================== */
+
+.upload-card{
+
+background:#fff;
+
+padding:24px;
+
+border-radius:22px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+margin-bottom:28px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.upload-card h2{
+
+font-size:24px;
+
+font-weight:700;
+
+color:#222;
+
+margin-bottom:5px;
+
+}
+
+.upload-card input{
+
+width:100%;
+
+padding:14px 16px;
+
+border:1px solid #e5e7eb;
+
+border-radius:12px;
+
+font-size:15px;
+
+outline:none;
+
+transition:.25s;
+
+background:#fafafa;
+
+}
+
+.upload-card input:focus{
+
+border-color:#2563eb;
+
+background:#fff;
+
+box-shadow:0 0 0 3px rgba(37,99,235,.12);
+
+}
+
+/* ====================================
+COMMON CARD ANIMATION
+==================================== */
+
+.topbar,
+.upload-card,
+.stat-card{
+
+transition:.25s;
+
+}
+
+.topbar:hover,
+.upload-card:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* ====================================
+COMMON SPACING
+==================================== */
+
+section{
+
+margin-bottom:25px;
+
+}
+
+/* ====================================
+SCROLLBAR
+==================================== */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#cfd8e3;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#b8c4d3;
+
+}
+
+/* ====================================
+SMALL UTILITIES
+==================================== */
+
+.hidden{
+
+display:none;
+
+}
+
+.text-center{
+
+text-align:center;
+
+}
+
+.mt-10{
+
+margin-top:10px;
+
+}
+
+.mt-20{
+
+margin-top:20px;
+
+}
+
+.mb-20{
+
+margin-bottom:20px;
 
 }
