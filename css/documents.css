@@ -14,13 +14,19 @@ gap:25px;
 
 background:white;
 
-padding:20px;
+border-radius:22px;
 
-border-radius:15px;
+padding:18px;
 
-box-shadow:0 8px 18px rgba(0,0,0,.08);
+box-shadow:0 8px 20px rgba(0,0,0,.06);
 
-transition:.3s;
+transition:.25s;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
 
 }
 
