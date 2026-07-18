@@ -249,8 +249,24 @@ previewHTML = `
 div.innerHTML = `
 ${previewHTML}
 
+<div class="document-info">
+
 <div class="document-title">
 ${doc.title}
+</div>
+
+<div class="document-meta">
+
+<span class="doc-category">
+${doc.category || "Document"}
+</span>
+
+<span class="doc-size">
+${formatFileSize(doc.file_size)}
+</span>
+
+</div>
+
 </div>
 
 <div class="document-actions">
