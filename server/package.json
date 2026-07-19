@@ -1,1 +1,16 @@
-
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Family Vault Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "backblaze-b2": "^1.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}
