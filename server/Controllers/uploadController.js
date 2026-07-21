@@ -84,6 +84,8 @@ const { error: dbError } = await supabase
     title,
 
     storage_path: fileName,
+    
+    file_id: uploadResponse.data.fileId,
 
     owner_id,
 
@@ -115,8 +117,6 @@ res.json({
 
 });
 
-
-
     } catch (err) {
 
         console.error(err);
@@ -129,6 +129,8 @@ res.json({
     }
 
 };
+
+
 exports.getDownloadUrl = async (req, res) => {
 
     try {
@@ -167,5 +169,3 @@ exports.getDownloadUrl = async (req, res) => {
     }
 
 };
-
-
