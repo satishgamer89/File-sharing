@@ -41,14 +41,75 @@ await b2.uploadFile({
 
 });
 
+const title = req.body.title;
+const owner_id = req.body.owner_id;
+
+// Detect category
+const extension = req.file.originalname
+    .split(".")
+    .pop()
+    .toLowerCase();
+
+let category = "Other";
+
+if(["jpg","jpeg","png","gif","webp"].includes(extension)){
+    category = "Image";
+}
+else if(extension==="pdf"){
+    category = "PDF";
+}
+else if(["doc","docx"].includes(extension)){
+    category = "Word";
+}
+else if(["xls","xlsx"].includes(extension)){
+    category = "Excel";
+}
+else if(["ppt","pptx"].includes(extension)){
+    category = "PowerPoint";
+}
+else if(["mp4","mov","avi"].includes(extension)){
+    category = "Video";
+}
+else if(["mp3","wav"].includes(extension)){
+    category = "Audio";
+}
+else if(["zip","rar","7z"].includes(extension)){
+    category = "Archive";
+}
+
+const { error: dbError } = await supabase
+.from("documents")
+.insert({
+
+    title,
+
+    storage_path: fileName,
+
+    owner_id,
+
+    category,
+
+    file_size: req.file.size
+
+});
+
+if(dbError){
+
+    return res.status(500).json({
+
+        success:false,
+
+        message:dbError.message
+
+    });
+
+}
+
 res.json({
 
-    success: true,
+    success:true,
 
-    message: "File uploaded",
-
-    fileId:
-    uploadResponse.data.fileId,
+    message:"Upload Success",
 
     fileName
 
