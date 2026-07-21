@@ -358,7 +358,7 @@ const ok = confirm("Delete this document?");
 
 if(!ok) return;
 
-const { error: storageError } =
+/*const { error: storageError } =
 await supabase.storage
 .from("private-docs")
 .remove([doc.storage_path]);
@@ -366,7 +366,7 @@ await supabase.storage
 if(storageError){
 alert(storageError.message);
 return;
-}
+}*/
 
 const { error: dbError } =
 await supabase
