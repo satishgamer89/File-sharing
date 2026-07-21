@@ -4,13 +4,16 @@ const express = require("express");
 const cors = require("cors");
 const b2 = require("./config/b2");
 
+
+const multer = require("multer");
+const upload = multer();
 const uploadRoutes = require("./routes/upload");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/upload", uploadRoutes);
+app.use("/upload", upload.single("file"), uploadRoutes);
 
 app.get("/", (req, res) => {
     res.send("✅ Family Vault API Running");
