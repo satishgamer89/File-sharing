@@ -6,10 +6,17 @@ file,
 title
 ){
 
+const {
+data:{user}
+}
+=
+await supabase.auth.getUser();
+
 const formData = new FormData();
 
 formData.append("file", file);
 formData.append("title", title);
+formData.append("owner_id", user.id);
 
 const response = await fetch(
   "https://file-sharing-shyo.onrender.com/upload",
@@ -29,12 +36,6 @@ if (!result.success) {
 }
 
 const filename = result.fileName;
-
-const {
-data:{user}
-}
-=
-await supabase.auth.getUser();
 
 // Detect category automatically
 const extension =
