@@ -326,14 +326,14 @@ ${formatFileSize(doc.file_size)}
 
 <a
 class="preview-btn"
-href="${signedData.signedUrl}"
+href="${signedUrl}"
 target="_blank">
 👁 Preview
 </a>
 
 <a
 class="download-btn"
-href="${signedData.signedUrl}"
+href="${signedUrl}"
 download>
 ⬇ Download
 </a>
