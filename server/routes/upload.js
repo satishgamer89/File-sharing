@@ -14,4 +14,9 @@ router.post(
     uploadController.uploadFile
 );
 
+router.get(
+    "/download/:fileName",
+    uploadController.getDownloadUrl
+);
+
 module.exports = router;
