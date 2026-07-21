@@ -228,7 +228,7 @@ if(["jpg","jpeg","png","gif","webp"].includes(extension)){
 
 previewHTML = `
 <img
-src="${signedData.signedUrl}"
+src="${signedUrl}"
 class="file-thumb"
 alt="Preview">
 `;
