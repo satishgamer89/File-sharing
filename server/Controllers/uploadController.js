@@ -1,5 +1,6 @@
 const b2 = require("../config/b2");
 const { v4: uuid } = require("uuid");
+const supabase = require("../config/supabase");
 
 exports.uploadFile = async (req, res) => {
 
