@@ -6,28 +6,29 @@ file,
 title
 ){
 
-const filename =
-Date.now() +
-'-' +
-file.name;
+const formData = new FormData();
 
-const { error } =
-await supabase
-.storage
-.from('private-docs')
-.upload(
-filename,
-file
+formData.append("file", file);
+formData.append("title", title);
+
+const response = await fetch(
+  "https://file-sharing-shyo.onrender.com/upload",
+  {
+    method: "POST",
+    body: formData
+  }
 );
 
-if(error){
+const result = await response.json();
 
-return{
-success:false,
-message:error.message
-};
-
+if (!result.success) {
+  return {
+    success: false,
+    message: result.message
+  };
 }
+
+const filename = result.fileName;
 
 const {
 data:{user}
