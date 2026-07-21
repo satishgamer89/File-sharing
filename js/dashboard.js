@@ -209,9 +209,13 @@ storageText;
 
     div.className = "document-card";
 
-    const { data: signedData } = await supabase.storage
-      .from("private-docs")
-      .createSignedUrl(doc.storage_path, 3600);
+    const response = await fetch(
+  `https://file-sharing-shyo.onrender.com/upload/download/${doc.storage_path}`
+);
+
+const result = await response.json();
+
+const signedUrl = result.url;
 
 const extension = doc.storage_path
 .split(".")
