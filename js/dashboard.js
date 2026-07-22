@@ -430,6 +430,9 @@ if(result.success){
 
 showToast(result.message,"success");
 
+document.getElementById("title").value = "";
+document.getElementById("fileInput").value = "";
+
 await loadDocuments();
 
 }else{
