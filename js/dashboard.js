@@ -168,11 +168,6 @@ const data = result.documents;
   </div>
   `;
   
-  const loading = document.getElementById("loading");
-
-if (loading) {
-    loading.remove();
-}
 
 container.innerHTML = "";
   document.getElementById("docCount").innerText = data.length;
