@@ -368,15 +368,29 @@ alert(storageError.message);
 return;
 }*/
 
-const { error: dbError } =
-await supabase
-.from("documents")
-.delete()
-.eq("id", doc.id);
+const response = await fetch(
+"https://file-sharing-shyo.onrender.com/upload",
+{
+    method: "DELETE",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
 
-if(dbError){
-alert(dbError.message);
-return;
+        documentId: doc.id,
+        fileId: doc.file_id,
+        fileName: doc.storage_path
+
+    })
+});
+
+const result = await response.json();
+
+if(!result.success){
+
+    alert(result.message);
+    return;
+
 }
 
 div.remove();
