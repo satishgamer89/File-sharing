@@ -161,7 +161,13 @@ if (!result.success) {
 const data = result.documents;
 
   const container = document.getElementById("documents");
-
+  
+  container.innerHTML = `
+  <div id="loading" class="loading-state">
+  ⏳ Loading your documents...
+  </div>
+  `;
+  
   const loading = document.getElementById("loading");
 
 if (loading) {
