@@ -19,4 +19,9 @@ router.get(
     uploadController.getDownloadUrl
 );
 
+router.delete(
+    "/",
+    uploadController.deleteFile
+);
+
 module.exports = router;
