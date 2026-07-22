@@ -162,7 +162,13 @@ const data = result.documents;
 
   const container = document.getElementById("documents");
 
-  container.innerHTML = "";
+  const loading = document.getElementById("loading");
+
+if (loading) {
+    loading.remove();
+}
+
+container.innerHTML = "";
   document.getElementById("docCount").innerText = data.length;
 
   // Calculate total storage
