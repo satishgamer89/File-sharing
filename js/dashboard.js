@@ -202,7 +202,8 @@ storageText =
 document.getElementById("storageUsed").innerText =
 storageText;
 
-  for (const doc of data) {
+  await Promise.all(
+data.map(async (doc) => {
     console.log("Processing:", doc);
 
     const div = document.createElement("div");
@@ -396,8 +397,9 @@ if(!result.success){
 div.remove();
 
 });
-  }
-}
+
+})
+);
 
 // --------------------
 // Upload
