@@ -169,3 +169,48 @@ exports.getDownloadUrl = async (req, res) => {
     }
 
 };
+
+exports.deleteFile = async (req, res) => {
+
+    try {
+
+        await b2.authorize();
+
+        await b2.deleteFileVersion({
+
+            fileId: req.body.fileId,
+            fileName: req.body.fileName
+
+        });
+
+        const { error } = await supabase
+        .from("documents")
+        .delete()
+        .eq("id", req.body.documentId);
+
+        if (error) {
+
+            return res.status(500).json({
+                success: false,
+                message: error.message
+            });
+
+        }
+
+        res.json({
+            success: true,
+            message: "File deleted"
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+
+    }
+
+};
