@@ -214,3 +214,78 @@ exports.deleteFile = async (req, res) => {
     }
 
 };
+
+
+exports.getDocuments = async (req, res) => {
+
+    try {
+
+        const { data, error } = await supabase
+        .from("documents")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+        if (error) {
+
+            return res.status(500).json({
+                success: false,
+                message: error.message
+            });
+
+        }
+
+        await b2.authorize();
+
+        const documents = await Promise.all(
+
+            data.map(async (doc) => {
+
+                const response =
+                await b2.getDownloadAuthorization({
+
+                    bucketId: process.env.B2_BUCKET_ID,
+                    fileNamePrefix: doc.storage_path,
+                    validDurationInSeconds: 3600
+
+                });
+
+                return {
+
+                    ...doc,
+
+                    signedUrl:
+                        process.env.B2_DOWNLOAD_URL +
+                        "/file/" +
+                        process.env.B2_BUCKET_NAME +
+                        "/" +
+                        doc.storage_path +
+                        "?Authorization=" +
+                        response.data.authorizationToken
+
+                };
+
+            })
+
+        );
+
+        res.json({
+
+            success: true,
+            documents
+
+        });
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).json({
+
+            success: false,
+            message: err.message
+
+        });
+
+    }
+
+};
