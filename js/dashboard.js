@@ -429,11 +429,7 @@ if(result.success){
 
 showToast(result.message,"success");
 
-setTimeout(()=>{
-
-location.reload();
-
-},1000);
+await loadDocuments();
 
 }else{
 
