@@ -15,6 +15,11 @@ router.post(
 );
 
 router.get(
+    "/documents",
+    uploadController.getDocuments
+);
+
+router.get(
     "/download/:fileName",
     uploadController.getDownloadUrl
 );
