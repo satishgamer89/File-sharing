@@ -433,6 +433,7 @@ showToast(result.message,"success");
 document.getElementById("title").value = "";
 document.getElementById("fileInput").value = "";
 
+  // Temporary
 await loadDocuments();
 
 }else{
