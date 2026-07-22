@@ -147,19 +147,18 @@ card.style.display = "none";
 async function loadDocuments() {
   console.log("Inside loadDocuments()");
 
-  const { data, error } = await supabase
-    .from("documents")
-    .select("*")
-    .order("created_at", {
-      ascending: false,
-    });
+  const response = await fetch(
+"https://file-sharing-shyo.onrender.com/upload/documents"
+);
 
-  console.log(data, error);
+const result = await response.json();
 
-  if (error) {
-    console.log(error);
+if (!result.success) {
+    console.log(result.message);
     return;
-  }
+}
+
+const data = result.documents;
 
   const container = document.getElementById("documents");
 
