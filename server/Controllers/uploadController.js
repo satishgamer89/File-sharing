@@ -373,9 +373,6 @@ exports.downloadFile = async (req, res) => {
             fileResponse.headers["content-type"]
         );
 
-    const originalFileName =
-    req.params.fileName.replace(/^[^-]+-/, "");
-
     res.setHeader(
     "Content-Disposition",
     `attachment; filename="${originalFileName}"`
