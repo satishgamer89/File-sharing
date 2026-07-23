@@ -161,6 +161,7 @@ if (!result.success) {
 const data = result.documents;
 
   const container = document.getElementById("documents");
+  const fragment = document.createDocumentFragment();
   
   container.innerHTML = `
   <div id="loading" class="loading-state">
