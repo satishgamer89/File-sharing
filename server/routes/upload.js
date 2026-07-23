@@ -25,6 +25,11 @@ router.get(
 );
 
 router.get(
+    "/download/:fileName",
+    uploadController.downloadFile
+);
+
+router.get(
     "/file/:fileName",
     uploadController.previewFile
 );
