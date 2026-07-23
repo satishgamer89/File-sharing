@@ -373,12 +373,15 @@ exports.downloadFile = async (req, res) => {
             fileResponse.headers["content-type"]
         );
 
-        res.setHeader(
-            "Content-Disposition",
-            `attachment; filename="${req.params.fileName}"`
-        );
+    const originalFileName =
+    req.params.fileName.replace(/^[^-]+-/, "");
 
-        fileResponse.data.pipe(res);
+    res.setHeader(
+    "Content-Disposition",
+    `attachment; filename="${originalFileName}"`
+     );
+
+    fileResponse.data.pipe(res);
 
     } catch (err) {
 
