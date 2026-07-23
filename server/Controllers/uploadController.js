@@ -289,3 +289,41 @@ exports.getDocuments = async (req, res) => {
     }
 
 };
+
+exports.previewFile = async (req, res) => {
+
+    try {
+
+        await b2.authorize();
+
+        const response =
+        await b2.getDownloadAuthorization({
+
+            bucketId: process.env.B2_BUCKET_ID,
+
+            fileNamePrefix: req.params.fileName,
+
+            validDurationInSeconds: 3600
+
+        });
+
+        const downloadUrl =
+        process.env.B2_DOWNLOAD_URL +
+        "/file/" +
+        process.env.B2_BUCKET_NAME +
+        "/" +
+        req.params.fileName +
+        "?Authorization=" +
+        response.data.authorizationToken;
+
+        res.redirect(downloadUrl);
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).send("Preview failed");
+
+    }
+
+};
