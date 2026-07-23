@@ -375,7 +375,7 @@ exports.downloadFile = async (req, res) => {
 
         res.setHeader(
             "Content-Disposition",
-            attachment; filename="${req.params.fileName}"
+            `attachment; filename="${req.params.fileName}"`
         );
 
         fileResponse.data.pipe(res);
