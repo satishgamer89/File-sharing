@@ -24,6 +24,11 @@ router.get(
     uploadController.getDownloadUrl
 );
 
+router.get(
+    "/file/:fileName",
+    uploadController.previewFile
+);
+
 router.delete(
     "/",
     uploadController.deleteFile
