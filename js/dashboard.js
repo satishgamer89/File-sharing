@@ -336,12 +336,10 @@ target="_blank">
 👁 Preview
 </a>
 
-<a
-class="download-btn"
-href="${signedUrl}"
-download>
-⬇ Download
-</a>
+<button
+class="download-btn">
+⬇️ Download
+</button>
 
 <button
 class="delete-btn">
@@ -355,7 +353,22 @@ class="delete-btn">
     fragment.appendChild(div);
     console.log(container.innerHTML);
     div.dataset.title = doc.title.toLowerCase();
-    
+
+  div.querySelector(".download-btn")
+ .addEventListener("click", async () => {
+
+    const a = document.createElement("a");
+
+    a.href = signedUrl;
+    a.download = doc.title;
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    document.body.removeChild(a);
+
+});
 div.querySelector(".delete-btn")
 .addEventListener("click", async () => {
 
