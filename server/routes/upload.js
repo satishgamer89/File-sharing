@@ -21,11 +21,6 @@ router.get(
 
 router.get(
     "/download/:fileName",
-    uploadController.getDownloadUrl
-);
-
-router.get(
-    "/download/:fileName",
     uploadController.downloadFile
 );
 
