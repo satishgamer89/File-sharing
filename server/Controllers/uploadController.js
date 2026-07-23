@@ -1,4 +1,5 @@
 const b2 = require("../config/b2");
+const axios = require("axios");
 const { v4: uuid } = require("uuid");
 const supabase = require("../config/supabase");
 
@@ -316,7 +317,18 @@ exports.previewFile = async (req, res) => {
         "?Authorization=" +
         response.data.authorizationToken;
 
-        res.redirect(downloadUrl);
+        const axios = require("axios");
+
+const fileResponse = await axios.get(downloadUrl, {
+    responseType: "stream"
+});
+
+res.setHeader(
+    "Content-Type",
+    fileResponse.headers["content-type"]
+);
+
+fileResponse.data.pipe(res);
 
     } catch (err) {
 
