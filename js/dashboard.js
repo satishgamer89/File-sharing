@@ -217,7 +217,8 @@ data.map(async (doc) => {
 
     div.className = "document-card";
 
-    const signedUrl = doc.signedUrl;
+    const signedUrl =
+`https://file-sharing-shyo.onrender.com/upload/file/${doc.storage_path}`;
 
 const extension = doc.storage_path
 .split(".")
