@@ -345,6 +345,11 @@ exports.downloadFile = async (req, res) => {
     try {
 
         await b2.authorize();
+        const { data: document, error } = await supabase
+.from("documents")
+.select("title")
+.eq("storage_path", req.params.fileName)
+.single();
 
         const response =
         await b2.getDownloadAuthorization({
