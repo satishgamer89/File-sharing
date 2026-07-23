@@ -357,16 +357,26 @@ class="delete-btn">
   div.querySelector(".download-btn")
  .addEventListener("click", async () => {
 
-    const a = document.createElement("a");
+    const response = await fetch(
+`https://file-sharing-shyo.onrender.com/upload/download/${doc.storage_path}`
+);
 
-    a.href =`https://file-sharing-shyo.onrender.com/upload/download/${doc.storage_path}`;
-    a.download = doc.title;
+const blob = await response.blob();
 
-    document.body.appendChild(a);
+const url = window.URL.createObjectURL(blob);
 
-    a.click();
+const a = document.createElement("a");
 
-    document.body.removeChild(a);
+a.href = url;
+a.download = doc.title;
+
+document.body.appendChild(a);
+
+a.click();
+
+a.remove();
+
+window.URL.revokeObjectURL(url);
 
 });
 div.querySelector(".delete-btn")
