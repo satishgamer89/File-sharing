@@ -339,3 +339,53 @@ fileResponse.data.pipe(res);
     }
 
 };
+
+exports.downloadFile = async (req, res) => {
+
+    try {
+
+        await b2.authorize();
+
+        const response =
+        await b2.getDownloadAuthorization({
+
+            bucketId: process.env.B2_BUCKET_ID,
+            fileNamePrefix: req.params.fileName,
+            validDurationInSeconds: 3600
+
+        });
+
+        const downloadUrl =
+        process.env.B2_DOWNLOAD_URL +
+        "/file/" +
+        process.env.B2_BUCKET_NAME +
+        "/" +
+        req.params.fileName +
+        "?Authorization=" +
+        response.data.authorizationToken;
+
+        const fileResponse = await axios.get(downloadUrl, {
+            responseType: "stream"
+        });
+
+        res.setHeader(
+            "Content-Type",
+            fileResponse.headers["content-type"]
+        );
+
+        res.setHeader(
+            "Content-Disposition",
+            attachment; filename="${req.params.fileName}"
+        );
+
+        fileResponse.data.pipe(res);
+
+    } catch (err) {
+
+        console.error(err);
+
+        res.status(500).send("Download failed");
+
+    }
+
+};
