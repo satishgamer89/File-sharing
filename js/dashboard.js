@@ -229,6 +229,8 @@ if(["jpg","jpeg","png","gif","webp"].includes(extension)){
 
 previewHTML = `
 <img
+loading="lazy"
+decoding="async"
 src="${signedUrl}"
 class="file-thumb"
 alt="Preview">
