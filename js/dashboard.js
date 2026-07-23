@@ -359,7 +359,7 @@ class="delete-btn">
 
     const a = document.createElement("a");
 
-    a.href = signedUrl;
+    a.href =`https://file-sharing-shyo.onrender.com/upload/download/${doc.storage_path}`;
     a.download = doc.title;
 
     document.body.appendChild(a);
