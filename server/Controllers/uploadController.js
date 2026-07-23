@@ -378,10 +378,15 @@ exports.downloadFile = async (req, res) => {
             fileResponse.headers["content-type"]
         );
 
-    res.setHeader(
+    const extension =
+req.params.fileName.substring(
+    req.params.fileName.lastIndexOf(".")
+);
+
+res.setHeader(
     "Content-Disposition",
-    `attachment; filename="${originalFileName}"`
-     );
+    `attachment; filename="${document.title}${extension}"`
+);
 
     fileResponse.data.pipe(res);
 
