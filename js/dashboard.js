@@ -403,7 +403,7 @@ div.remove();
 
 })
 );
-
+container.appendChild(fragment);
 }
 // --------------------
 // Upload
