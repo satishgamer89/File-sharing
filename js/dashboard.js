@@ -368,7 +368,7 @@ const url = window.URL.createObjectURL(blob);
 const a = document.createElement("a");
 
 a.href = url;
-a.download = doc.title;
+a.download = doc.storage_path.split("-").slice(1).join("-");
 
 document.body.appendChild(a);
 
